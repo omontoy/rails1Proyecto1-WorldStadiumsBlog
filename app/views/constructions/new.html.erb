@@ -1,0 +1,14 @@
+<div class="container">
+   <div class="row">
+      <div class="col-xs-4 col-xs-offset-4">
+         <h1 class="text-center">Nuevo Estadio</h1>   
+
+         <%= form_for @construction do |f| %>
+            <div class="form-group">
+               <%= f.text_field :name, class:"form-control input-lg", placeholder:"Nombre del Estadio" %>
+            </div>   
+         <% end %>
+            
+      </div>
+   </div>
+</div>

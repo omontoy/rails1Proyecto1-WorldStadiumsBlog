@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users
-   resources :stadiums
 
-   root 'stadiums#index'
+  devise_for :users
+   resources :constructions
+
+   root 'constructions#index'
 end
