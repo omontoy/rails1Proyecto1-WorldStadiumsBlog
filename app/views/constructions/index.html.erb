@@ -1,36 +1,31 @@
 <div class="container">
    <div class="row">
      
-         <table class="table">
-         
-            <thead>
-               <tr>
-                 <th>IMAGEN</th>
-                 <th>NOMBRE</th>
-                 <th>CAPACIDAD</th>
-                 <th>CIUDAD</th>
-                 <th>DESCRIPCIÓN</th>
-               </tr>
-            </thead>
+      <table class="table">
+      
+         <thead>
+            <tr>
+              <th>IMAGEN</th>
+              <th>NOMBRE</th>
+              <th>CAPACIDAD</th>
+              <th>CIUDAD</th>
+              <th>DESCRIPCIÓN</th>
+            </tr>
+         </thead>
 
-            <% @constructions.each do |construction| %>
-           
-               <tr>
-                  <td><%= image_tag construction.image_url, id:"index-images" %></td>
-                  <td><%= construction.name %></td>
-                  <td><%= construction.capacity %></td>
-                  <td><%= construction.city %></td>
-                  <td><%= construction.description %></td>
-                  <td><%= link_to "Editar", edit_construction_path(construction) %></td>
-                  <td><%= link_to "Eliminar", construction, :method => :delete %></td>
-                  
-                  
+         <% @constructions.each do |construction| %>
+            <tr>
+               <td><%= image_tag construction.image_url, id:"index-images" %></td>
+               <td><%= construction.name %></td>
+               <td><%= construction.capacity %></td>
+               <td><%= construction.city %></td>
+               <td><%= construction.description %></td>
+               <td><%= link_to "Editar", edit_construction_path(construction) %></td>
+               <td><%= link_to "Eliminar", construction, :method => :delete %></td>
+            </tr>
+         <% end %>  
 
-               </tr>
-            <% end %>  
+      </table>
 
-         </table>
-   
-         
    </div>
 </div>

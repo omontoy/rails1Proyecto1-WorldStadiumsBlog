@@ -9,6 +9,7 @@ class ConstructionsController < ApplicationController
 
    def create
       @construction = Construction.new(construction_params)
+      @construction.user = current_user
       if @construction.save
          redirect_to root_path
       else
