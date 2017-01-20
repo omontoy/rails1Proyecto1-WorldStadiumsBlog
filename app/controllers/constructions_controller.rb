@@ -9,7 +9,7 @@ class ConstructionsController < ApplicationController
 
    def create
       @construction = Construction.new(construction_params)
-      if @construction.saved
+      if @construction.save
          redirect_to root_path
       else
          render :new
@@ -17,6 +17,6 @@ class ConstructionsController < ApplicationController
    end
 
    def construction_params
-      params.require(:construction).permit(:name, :capacity, :description)
+      params.require(:construction).permit(:name, :image_url, :capacity, :city, :description)
    end
 end

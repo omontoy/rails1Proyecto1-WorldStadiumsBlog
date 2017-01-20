@@ -14,23 +14,9 @@ ActiveRecord::Schema.define(version: 20170120022202) do
 
   create_table "constructions", force: :cascade do |t|
     t.string   "name"
+    t.string   "image_url"
     t.integer  "capacity"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "places", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "capacity"
-    t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
-  create_table "stadiums", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "capacity"
+    t.string   "city"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

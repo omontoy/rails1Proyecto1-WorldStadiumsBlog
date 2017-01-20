@@ -1,1 +1,33 @@
-<h1>construcciones</h1>
+<div class="container">
+   <div class="row">
+     
+         <table class="table">
+         
+            <thead>
+               <tr>
+                 <th>IMAGEN</th>
+                 <th>NOMBRE</th>
+                 <th>CAPACIDAD</th>
+                 <th>CIUDAD</th>
+                 <th>DESCRIPCIÓN</th>
+               </tr>
+            </thead>
+
+            <% @constructions.each do |actor| %>
+           
+               <tr>
+                  <td><%= image_tag actor.image_url, id:"index-images" %></td>
+                  <td><%= actor.name %></td>
+                  <td><%= actor.capacity %></td>
+                  <td><%= actor.city %></td>
+                  <td><%= actor.description %></td>
+                  
+
+               </tr>
+            <% end %>  
+
+         </table>
+   
+         
+   </div>
+</div>
