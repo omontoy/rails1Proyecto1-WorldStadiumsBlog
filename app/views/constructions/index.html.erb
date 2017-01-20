@@ -13,15 +13,16 @@
                </tr>
             </thead>
 
-            <% @constructions.each do |actor| %>
+            <% @constructions.each do |construction| %>
            
                <tr>
-                  <td><%= image_tag actor.image_url, id:"index-images" %></td>
-                  <td><%= actor.name %></td>
-                  <td><%= actor.capacity %></td>
-                  <td><%= actor.city %></td>
-                  <td><%= actor.description %></td>
-                  <td><%= link_to "Editar", edit_construction_path(actor) %> <%= link_to "Eliminar" %></td>
+                  <td><%= image_tag construction.image_url, id:"index-images" %></td>
+                  <td><%= construction.name %></td>
+                  <td><%= construction.capacity %></td>
+                  <td><%= construction.city %></td>
+                  <td><%= construction.description %></td>
+                  <td><%= link_to "Editar", edit_construction_path(construction) %></td>
+                  <td><%= link_to "Eliminar", construction, :method => :delete %></td>
                   
                   
 

@@ -29,6 +29,13 @@ class ConstructionsController < ApplicationController
       end
    end
 
+   def destroy
+      @construction = Construction.find(params[:id])
+      @construction.destroy
+
+      redirect_to root_path
+   end
+
    def construction_params
       params.require(:construction).permit(:name, :image_url, :capacity, :city, :description)
    end
