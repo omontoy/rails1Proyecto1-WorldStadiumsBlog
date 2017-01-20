@@ -16,6 +16,10 @@ class ConstructionsController < ApplicationController
       end
    end
 
+   def show
+      @construction = Construction.find(params[:id])
+   end
+
    def edit
       @construction = Construction.find(params[:id])
    end

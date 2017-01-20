@@ -1,0 +1,27 @@
+<div class="container">
+   <div class="row">
+     
+      <table class="table">
+      
+         <thead>
+            <tr>
+              <th>IMAGEN</th>
+              <th>NOMBRE</th>
+              <th>CAPACIDAD</th>
+              <th>CIUDAD</th>
+              <th>DESCRIPCIÓN</th>
+            </tr>
+         </thead>
+
+         <tr>
+            <td><%= image_tag @construction.image_url, id:"index-images" %></td>
+            <td><%= @construction.name %></td>
+            <td><%= @construction.capacity %></td>
+            <td><%= @construction.city %></td>
+            <td><%= @construction.description %></td>
+         </tr>
+     
+      </table>
+       
+   </div>
+</div>
