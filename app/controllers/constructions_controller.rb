@@ -16,6 +16,19 @@ class ConstructionsController < ApplicationController
       end
    end
 
+   def edit
+      @construction = Construction.find(params[:id])
+   end
+
+   def update
+      @construction = Construction.find(params[:id])
+      if @construction.update(construction_params)
+         redirect_to root_path
+      else
+         render :edit
+      end
+   end
+
    def construction_params
       params.require(:construction).permit(:name, :image_url, :capacity, :city, :description)
    end
