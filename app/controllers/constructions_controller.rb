@@ -1,6 +1,6 @@
 class ConstructionsController < ApplicationController
    def index
-      @constructions = Construction.all
+      @constructions = Construction.order('created_at DESC')
    end
 
    def new
