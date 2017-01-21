@@ -54,11 +54,29 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-   <% if flash[:notice] %>
-      <div class="alert alert-info">
-         <%= flash[:notice] %>
-      </div>
-   <% end %>
+  <div class="col-xs-4 col-xs-offset-4">
+    <% flash.each do |name, msg| %>
+
+      <% if flash[:notice] %>
+        
+        <div class="alert alert-success">
+          <div class="text-center">
+            <%= flash[:notice] %>
+          </div>
+        </div>
+        
+      <% else %>
+
+        <div class="alert alert-danger">
+          <ul>
+            <li><%= content_tag :div, msg, :id => "flash_#{name}" %></li>
+          </ul>
+        </div>
+        
+      <% end %> 
+    <% end %>
+  </div>
+  
 
     <%= yield %>
   </body>

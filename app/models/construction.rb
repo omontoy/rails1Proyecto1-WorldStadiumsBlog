@@ -15,4 +15,12 @@
 
 class Construction < ApplicationRecord
    belongs_to :user
+   validates :user, presence: true
+
+   validates :name, :image_url, :capacity, :city, :description, presence: true
+
+   validates :city, format: { with: /\A[a-zA-Z\s+]+\z/,
+       message: "only allows letters" }
+
+   validates :description, length: {minimum: 255}
 end

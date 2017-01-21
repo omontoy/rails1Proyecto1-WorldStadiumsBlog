@@ -4,6 +4,17 @@
          <h1 class="text-center">Nuevo Estadio</h1>   
 
          <%= form_for @construction do |f| %>
+
+            <% if @construction.errors.any? %>
+              <div class="alert alert-danger">
+                <ul>
+                <% @construction.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+                </ul>
+              </div>
+            <% end %>
+
             <div class="form-group">
                <%= f.text_field :name, class:"form-control input-lg", placeholder:"Nombre del Estadio" %>
             </div>   
