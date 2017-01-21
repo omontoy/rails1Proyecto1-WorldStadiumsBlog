@@ -19,7 +19,8 @@
                <td><%= link_to construction.name, construction_path(construction.id) %></td>
                <td><%= construction.capacity %></td>
                <td><%= construction.city %></td>
-               <td><%= construction.description %></td>
+               <td><%= construction.description.truncate(250) %></td>
+               <td>Publicado por <%= construction.user.email %> hace <%= time_ago_in_words(construction.created_at) %></td>
 
                <% if user_signed_in? && construction.user == current_user %>
                 <td><%= link_to "Editar", edit_construction_path(construction) %></td>
