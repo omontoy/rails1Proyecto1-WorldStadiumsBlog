@@ -1,0 +1,34 @@
+<div class="container">
+   <div class="row">
+     
+      <table class="table">
+
+        <thead>
+           <tr>
+             <th>IMAGEN</th>
+             <th>NOMBRE</th>
+             <th>CAPACIDAD</th>
+             <th>CIUDAD</th>
+             <th>DESCRIPCIÓN</th>
+           </tr>
+        </thead>
+
+      <% @posts.each do |post| %>
+        <tr>
+           <td><%= image_tag post.image_url, id:"index-images" %></td>
+           <td><%= post.name %></td>
+           <td><%= post.capacity %></td>
+           <td><%= post.city %></td>
+           <td><%= post.description %></td>
+
+           <% if user_signed_in? && post.user == current_user %>
+            <td><%= link_to "Editar", edit_construction_path(post) %></td>
+            <td><%= link_to "Eliminar", post, :method => :delete %></td>
+           <% end %>
+        </tr>
+      <% end %>
+      
+      </table>
+       
+   </div>
+</div>
