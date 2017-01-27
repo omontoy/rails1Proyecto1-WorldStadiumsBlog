@@ -20,7 +20,7 @@ class Construction < ApplicationRecord
    validates :name, :image_url, :capacity, :city, :description, presence: true
 
    validates :city, format: { with: /\A[a-zA-Z\s+]+\z/,
-       message: "only allows letters" }
+       message: "Solo permite letras" }
 
    validates :description, length: {minimum: 255}
 end
