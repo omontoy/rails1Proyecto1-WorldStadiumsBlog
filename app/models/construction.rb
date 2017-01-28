@@ -15,6 +15,8 @@
 
 class Construction < ApplicationRecord
    belongs_to :user
+   has_many :comments
+   
    validates :user, presence: true
 
    validates :name, :image_url, :capacity, :city, :description, presence: true

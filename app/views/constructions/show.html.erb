@@ -27,6 +27,44 @@
          </tr>
      
       </table>
-       
+
+      <div class="col-xs-6">
+        <h3>Comentarios ( <%= @construction.comments.count %> )</h3>
+        <hr>
+
+        <% @construction.comments.each do |comment| %>
+
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <%= comment.user.email %> comentó hace <%= time_ago_in_words(comment.created_at) %>
+            </div>
+
+            <div class="panel-body">
+              <%= comment.body %>
+              <% if user_signed_in? && comment.user == current_user %>
+                <%= link_to "Eliminar", [comment.construction, comment], :method => :delete, class:"pull-right" %>
+              <% end %>
+            </div>
+            
+          </div>
+
+        <% end %>
+
+        <% if user_signed_in? %>
+          <%= form_for([@construction, @construction.comments.build]) do |f| %>
+
+            <div class="form-group">
+              <h4>Nuevo Comentario</h4>
+              <%= f.text_area :body, class:"form-control", placeholder:"Ingresa tu comentario" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.submit "Comentar", class:"btn btn-primary" %>
+            </div>
+
+          <% end %>
+        <% end %>
+        
+      </div>
    </div>
 </div>
