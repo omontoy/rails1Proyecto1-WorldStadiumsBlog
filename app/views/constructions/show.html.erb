@@ -18,7 +18,7 @@
             <td><%= @construction.name %></td>
             <td><%= @construction.capacity %></td>
             <td><%= @construction.city %></td>
-            <td><%= @construction.description %></td>
+            <td><%= markdown(@construction.description) %></td>
 
             <% if user_signed_in? && @construction.user == current_user %>
              <td><%= link_to "Editar", edit_construction_path(@construction) %></td>
