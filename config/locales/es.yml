@@ -3,7 +3,7 @@ es:
     messages:
       blank: "no puede estar en blanco"
       invalid: "es inválido"
-      too_short: "muy corto"
+      too_short: "muy corto (250 caracteres mínimo) "
       Title: "Titulos"
 
   datetime:

@@ -1,36 +1,36 @@
-<div class="container">
-   <div class="row">
-     
-      <table class="table">
-      
-         <thead>
-            <tr>
-              <th>IMAGEN</th>
-              <th>NOMBRE</th>
-              <th>CAPACIDAD</th>
-              <th>CIUDAD</th>
-              <th>DESCRIPCIÓN</th>
-            </tr>
-         </thead>
+<% @constructions.each do |construction| %>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <div class="thumbnail" id="boxes">
+          <div class="col-xs-6" id="padding-images">
+            <%= image_tag construction.image_url, id:"index-images" %>
+          </div>
 
-         <% @constructions.each do |construction| %>
-            <tr>
-               <td><%= image_tag construction.image_url, id:"index-images" %></td>
-               <td><%= link_to construction.name, construction_path(construction.id) %></td>
-               <td><%= construction.capacity %></td>
-               <td><%= construction.city %></td>
-               <td><%= markdown(construction.description.truncate(250)) %></td>
-               <td>Publicado por <%= construction.user.email %> hace <%= time_ago_in_words(construction.created_at) %></td>
+          <div class="col-xs-6">
+            <h1 class="text-center">
+              <%= link_to construction.name, construction_path(construction.id) %>
+            </h1>
 
-               <% if user_signed_in? && construction.user == current_user %>
-                <td><%= link_to "Editar", edit_construction_path(construction) %></td>
-                <td><%= link_to "Eliminar", construction, :method => :delete %></td>
-               <% end %>
-               
-            </tr>
-         <% end %>  
+            <div class="text-center" id="date">
+              <em>Publicado por <%= construction.user.email %> hace <%= time_ago_in_words(construction.created_at) %></em>
+            </div>
 
-      </table>
+            <br> <%= markdown(construction.description.truncate(250)) %>
 
-   </div>
-</div>
+            <h2 class="text-center">
+              <% if user_signed_in? && construction.user == current_user %>
+
+                <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_construction_path(construction), id:"edit_button" %>
+
+                <%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, construction, data: { confirm: "Are you sure?" }, method: :delete, id:"delete_button" %>
+                
+              <% end %>
+            </h2>
+
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %> 

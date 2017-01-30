@@ -1,4 +1,31 @@
 #index-images {
-   height: 200px;
+   height: 250px;
    width: 100%;
 }
+
+#padding-images {
+   padding-right: 0px;
+   padding-left: 0px;
+}
+
+#boxes {
+   background: #FFE4B5;
+   height: 260px;
+}
+
+body {
+   background: #404040;
+}
+
+#delete_button:hover { 
+   color: FireBrick;
+}
+
+#edit_button:hover { 
+   color: DarkGoldenRod;
+}
+
+#date {
+   color: DimGray;
+}
+
