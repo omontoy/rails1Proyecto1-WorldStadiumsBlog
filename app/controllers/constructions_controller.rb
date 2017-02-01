@@ -1,6 +1,10 @@
 class ConstructionsController < ApplicationController
    def index
       @constructions = Construction.order('created_at DESC')
+
+      if params[:name].present? 
+        @constructions = @constructions.where("name LIKE ?", "%#{params[:name].strip}%")
+      end
    end
 
    def new
