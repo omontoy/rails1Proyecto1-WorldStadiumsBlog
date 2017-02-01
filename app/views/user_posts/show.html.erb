@@ -1,34 +1,32 @@
 <div class="container">
    <div class="row">
-     
-      <table class="table">
-
-        <thead>
-           <tr>
-             <th>IMAGEN</th>
-             <th>NOMBRE</th>
-             <th>CAPACIDAD</th>
-             <th>CIUDAD</th>
-             <th>DESCRIPCIÓN</th>
-           </tr>
-        </thead>
-
+    <div class="col-xs-12">
       <% @posts.each do |post| %>
-        <tr>
-           <td><%= image_tag post.image_url, id:"index-images" %></td>
-           <td><%= post.name %></td>
-           <td><%= post.capacity %></td>
-           <td><%= post.city %></td>
-           <td><%= post.description %></td>
+        <% if @posts.count  == 1  %>
+          <div class="col-xs-4 col-xs-offset-4">
+        <% elsif @posts.count % 3 == 0 || @posts.count % 2 == 1  %>
+          <div class="col-xs-4">
+        <% elsif @posts.count % 2 == 0 %>
+          <div class="col-xs-4 col-xs-offset-1">
+      <% end %>
+
+      <div class="thumbnail" id="userPosts-boxes">
+        <a href="<%= construction_path(post.id) %>">
+          <%= image_tag post.image_url, id:"index-images" %>
+        </a>
+
+        <div class="text-center">
+          <%= link_to post.name, construction_path(post.id), id:"userPosts-titles" %><br>
 
            <% if user_signed_in? && post.user == current_user %>
-            <td><%= link_to "Editar", edit_construction_path(post) %></td>
-            <td><%= link_to "Eliminar", post, :method => :delete %></td>
+             <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_construction_path(post), id:"edit_button" %>
+
+             <%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, post, data: { confirm: "Are you sure?" }, method: :delete, id:"delete_button" %>
            <% end %>
-        </tr>
+        </div>
+      </div>
+    </div>   
       <% end %>
-      
-      </table>
-       
-   </div>
+  </div>
+</div>
 </div>

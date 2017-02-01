@@ -4,7 +4,9 @@
       <div class="col-xs-10 col-xs-offset-1">
         <div class="thumbnail" id="boxes">
           <div class="col-xs-6" id="padding-images">
-            <%= image_tag construction.image_url, id:"index-images" %>
+            <a href="<%= construction_path(construction.id) %>">
+              <%= image_tag construction.image_url, id:"index-images" %>
+            </a>
           </div>
 
           <div class="col-xs-6">
