@@ -5,7 +5,12 @@
 @import "construction";
 
 .navbar {
-   background: #F4A460;
+   background: #A52A2A;
+}
+
+#navbar_brand {
+   color: white;
+   font-size: 23px;
 }
 
 #navbar_links {
@@ -14,7 +19,7 @@
 }
 
 #navbar_links:hover {
-   font-size: 30px;
+   font-size: 25px;
    color: black;
 }
 
@@ -22,4 +27,19 @@
    background-color: DimGrey;
 }
 
+#text_controller {
+   word-wrap: break-word;
+}
 
+#login_signup_pages {
+   color: white;
+}
+
+#bottom_links {
+   font-size: 17px;
+
+   &:hover {
+      color: lightgreen;
+   }
+    
+}

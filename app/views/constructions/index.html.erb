@@ -18,8 +18,6 @@
               <em>Publicado por <%= construction.user.email %> hace <%= time_ago_in_words(construction.created_at) %></em>
             </div>
 
-            <br> <%= markdown(construction.description.truncate(250)) %>
-
             <h2 class="text-center">
               <% if user_signed_in? && construction.user == current_user %>
 
@@ -29,6 +27,10 @@
                 
               <% end %>
             </h2>
+ 
+            <div id="text_controller">
+              <%= markdown(construction.description.truncate(250)) %>
+            </div>
 
           </div>  
         </div>

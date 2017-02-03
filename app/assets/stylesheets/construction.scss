@@ -1,0 +1,33 @@
+#show_image {
+   width: 100%;
+   border: 8px solid white;
+}
+
+#text-show {
+   color: white;
+
+   .panel-heading {
+      color: white;
+   }
+
+   .panel-body {
+      color: black;
+   }
+}
+
+#description {
+   color: white;
+   font-size: 18px;
+}
+
+#show_title {
+   color: white;
+}
+
+#panelComments {
+   background-color: #A52A2A;
+}
+
+.panel-body {
+   background-color: #DCDCDC;
+}
