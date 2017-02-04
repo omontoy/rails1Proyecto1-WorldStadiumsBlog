@@ -35,3 +35,22 @@
 #image_info {
    font-size: 18px;
 }
+
+#description_buttons {
+
+   #edit_button {
+      color: white;
+   }
+
+   #delete_button {
+      color: white;
+   }
+   
+   #edit_button:hover {
+      color: DarkGoldenRod;
+   }
+
+   #delete_button:hover {
+      color: FireBrick;
+   }
+}
