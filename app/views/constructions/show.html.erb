@@ -1,12 +1,24 @@
 
 <div class="container">
   <div class="row">
-      <h1 class="pull-right" id="show_title"><%= @construction.name %><hr></h1>  
+        
     <div class="col-xs-12" id="text-show">
       
       <div class="col-xs-7">
-        <br>
+
+        <h1 class="text-center" id="show_title"><%= @construction.name %> Stadium<hr></h1>
+        
         <%= image_tag @construction.image_url, id:"show_image", class:"img-circle" %>
+
+        <div id="image_info">
+          <div class="pull-left">
+            <%= markdown("###`Capacidad:`###")%><%= @construction.capacity %> espectadores
+          </div>
+        
+          <div class="pull-right">
+            <%= markdown("###`Ubicación:`###")%><%= @construction.city %>
+          </div>
+        </div>
 
         <h3 class="col-xs-4 col-xs-offset-4">
           <% if user_signed_in? && @construction.user == current_user %>
@@ -73,4 +85,3 @@
     
   </div>
 </div>
-

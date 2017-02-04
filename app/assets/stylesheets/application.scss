@@ -43,3 +43,12 @@
    }
     
 }
+
+strong>em,
+em>strong,
+b>i,
+i>b {
+    font-style:normal;
+    font-weight:bold;
+    text-decoration:underline;
+}
