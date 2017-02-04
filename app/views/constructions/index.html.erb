@@ -18,7 +18,7 @@
               <em>Publicado por <%= construction.user.email %> hace <%= time_ago_in_words(construction.created_at) %></em>
             </div>
 
-            <h3 class="text-center">
+            <h4 class="text-center">
               <% if user_signed_in? && construction.user == current_user %>
 
                 <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_construction_path(construction), id:"edit_button" %>
@@ -26,7 +26,7 @@
                 <%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, construction, data: { confirm: "Seguro desea eliminar el post ?" }, method: :delete, id:"delete_button" %>
                 
               <% end %>
-            </h3>
+            </h4>
  
             <div id="text_controller">
               <%= markdown(construction.description.truncate(250)) %>
