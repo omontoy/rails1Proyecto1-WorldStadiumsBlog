@@ -1,4 +1,6 @@
 class ConstructionsController < ApplicationController
+   before_action :authenticate_user!, except: [:index, :show]
+
    def index
       @constructions = Construction.order('created_at DESC')
 
@@ -47,7 +49,8 @@ class ConstructionsController < ApplicationController
       redirect_to root_path 
    end
 
-   def construction_params
-      params.require(:construction).permit(:name, :image_url, :capacity, :city, :description)
-   end
+   private
+      def construction_params
+         params.require(:construction).permit(:name, :image_url, :capacity, :city, :description)
+      end
 end
