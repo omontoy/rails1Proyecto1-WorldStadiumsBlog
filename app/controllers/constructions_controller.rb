@@ -1,5 +1,6 @@
 class ConstructionsController < ApplicationController
    before_action :authenticate_user!, except: [:index, :show]
+   before_action :private_access, only: [:edit]
 
    def index
       @constructions = Construction.order('created_at DESC')
