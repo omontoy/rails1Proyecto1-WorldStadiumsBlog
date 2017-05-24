@@ -5,7 +5,7 @@ class UserPostsController < ApplicationController
      @posts = Construction.where("user_id = ?", current_user.id)
 
      if params[:name].present? 
-       @posts = @posts.where("name LIKE ?", "%#{params[:name].strip}%")
+       @posts = @posts.where("name ILIKE ?", "%#{params[:name].strip}%")
      end
    end
 
