@@ -1,3 +1,6 @@
+# Localmente debo usar LIKE --> SQLite
+# En Heroku debo usar ILIKE --> PostgreSQL
+
 class UserPostsController < ApplicationController
    before_action :authenticate_user!
    

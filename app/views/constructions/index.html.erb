@@ -1,40 +1,61 @@
-<% @constructions.each do |construction| %>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-10 col-xs-offset-1">
-        <div class="thumbnail" id="boxes">
-          <div class="col-xs-6" id="padding-images">
-            <a href="<%= construction_path(construction.id) %>">
-              <%= image_tag construction.image_url, id:"index-images" %>
-            </a>
+<% if @constructions.count == 0 %>
+  <div class="col-sm-6 col-sm-offset-3">
+    <div class="jumbotron">
+      <h1 class="text-center">No existe !!</h1>
+    </div>
+  </div>
+
+  <% else %>
+
+  
+  <% @constructions.each do |construction| %>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <div class="thumbnail" id="boxes">
+            <div class="col-xs-3" id="padding-images">
+              <a href="<%= construction_path(construction.id) %>">
+                <%= image_tag construction.image_url, id:"index-images" %>
+              </a>
+            </div>
+
+            <div class="col-xs-8">
+              <h1 class="text-center">
+                <%= link_to construction.name, construction_path(construction.id) %>
+              </h1>
+
+              <div class="text-center" id="date">
+                <em>Publicado por <%= construction.user.email %> hace <%= time_ago_in_words(construction.created_at) %></em>
+              </div>
+
+              <h4 class="text-center">
+                <% if user_signed_in? && construction.user == current_user %>
+
+                  <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_construction_path(construction), id:"edit_button" %>
+
+                  <%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, construction, data: { confirm: "Seguro desea eliminar el post ?" }, method: :delete, id:"delete_button" %>
+                  
+                <% end %>
+              </h4>
+
+              <div class="text-center pull-right">
+                <%= markdown("###`Capacidad:`###")%><%= construction.capacity %> Estudiantes
+              </div>
+   
+              <div class ="text-center pull-left" id="text_controller">
+                <%= markdown("###`Docente:`###")%><%= construction.description %>
+              </div>
+
+              <div class ="text-center pull-center">
+                <%= markdown("###`Código:`###")%><%= construction.code %>
+              </div>
+
+            </div>  
+          
           </div>
-
-          <div class="col-xs-6">
-            <h1 class="text-center">
-              <%= link_to construction.name, construction_path(construction.id) %>
-            </h1>
-
-            <div class="text-center" id="date">
-              <em>Publicado por <%= construction.user.email %> hace <%= time_ago_in_words(construction.created_at) %></em>
-            </div>
-
-            <h4 class="text-center">
-              <% if user_signed_in? && construction.user == current_user %>
-
-                <%= link_to '<span class="glyphicon glyphicon-pencil"></span>'.html_safe, edit_construction_path(construction), id:"edit_button" %>
-
-                <%= link_to '<span class="glyphicon glyphicon-trash"></span>'.html_safe, construction, data: { confirm: "Seguro desea eliminar el post ?" }, method: :delete, id:"delete_button" %>
-                
-              <% end %>
-            </h4>
- 
-            <div id="text_controller">
-              <%= markdown(construction.description.truncate(250)) %>
-            </div>
-
-          </div>  
         </div>
       </div>
     </div>
-  </div>
-<% end %> 
+  <% end %> 
+
+<% end %>
