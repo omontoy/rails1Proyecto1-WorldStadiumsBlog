@@ -1,6 +1,6 @@
 module ConstructionsHelper
    def form_title
-      @construction.new_record? ? "Nuevo Post" : "Editar Post"
+      @construction.new_record? ? "Nuevo Curso" : "Editar Curso"
    end
 
    def form_button
